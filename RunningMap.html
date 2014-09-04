@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+
+<!-- TODO
+	- Add an undo button
+	X Add a total climb feature
+	X Add tabbed pane with relative,climb, and absolute elevation
+	? Geolocation on start
+	X Add a location finder
+	- Add explaination pop-up
+	X Have new Run turn off the tracker.
+	- Add text field saying the status of the tacker. (On/Off)
+	-Draw charts (update charts) only when they are opened.
+ -->
+
+
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+
+<!-- CSS for the Running Map page -->
+<link rel="stylesheet" type="text/css" href="RunningMap.css">
+
+<!-- Google API script references  -->
+<script src="https://www.google.com/jsapi"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
+<!-- Custom script references -->
+<script src="distance-functions.js"></script>
+<script src="info-boxes.js"></script>
+<script src="basic-map.js"></script>
+<script src="run-line.js"></script>
+<script src="elevation.js"></script>
+<script src="chart-popup.js"></script>
+</head>
+
+<body>
+	<div id="map-canvas"></div>
+
+	<div id="location-finder">
+		<input id="address" type="textbox" placeholder="place to go">
+		<input id='address-button' type="button" value="Go!"
+			onclick="newLocation()">
+	</div>
+	<div id="info-div">
+	</div>
+	<div id="chart-button-div">
+		<input id="chart-button" type="button" value="Show Charts"
+			onclick="openCharts()">
+	</div>
+	<div id='tracker-status-container'>
+		<div id='tracker-status'>Off</div>
+	</div>
+
+	<div id="undo-button-container">
+		<div id='undo-button' onclick="undo()">
+			Undo
+		</div>
+	</div>
+	<!-- Pop up for charts -->
+	<div id='over-div' onclick="closeCharts()"></div>
+	<div id='pop-up-div'>
+		<div id="close-button">
+			<input id='close-charts-button' type="button" value="X"
+				onclick="closeCharts()">
+		</div>
+		<div id='elevation-charts-div'>
+			<div id="relative-elevation-chart" class="line-chart"></div>
+			<div id="absolute-elevation-chart" class="line-chart"></div>
+			<div id="climb-chart" class="line-chart"></div>
+		</div>
+	</div>
+
+
+</body>
+</html>
