@@ -44,7 +44,7 @@ html,body,#map-canvas {
 	position: absolute;
 	top: 5px;
 	left: 7%;
-	z-index: 3;
+	z-index: 3;/*3  */
 	padding: 5px;
 	border: 1px solid #999;
 	border-radius: 7px;
@@ -85,8 +85,16 @@ html,body,#map-canvas {
 #info-div {
 	position: absolute;
 	left: 7%;
-	z-index: 2;
+	z-index: 2; /*2  */
+	bottom: 1.75%;
+}
+
+#metrics-div {
+	position: absolute;
+	left: 7%;
+	z-index: 2; /*2  */
 	bottom: 8%;
+	padding: 5px;
 }
 
 /* #chart-button-div {
@@ -97,10 +105,10 @@ html,body,#map-canvas {
 	bottom: 3%;
 } */
 #chart-button {
-	position: absolute;
+/*	position: absolute;
 	right: 7.5%;
-	z-index: 4;
-	bottom: 7.5%;
+	z-index: 2; 
+	bottom: 16px;
 	font-size: 1em;
 	font-weight: bold;
 	font-family: "Comic Sans MS", cursive, sans-serif;
@@ -112,7 +120,7 @@ html,body,#map-canvas {
 	text-shadow: 0 0 2px black;
 	border-radius: 7px;
 	box-shadow: 5px 5px 5px #616363;
-	cursor: pointer;
+	cursor: pointer;*/
 }
 
 #over-div {
@@ -125,43 +133,27 @@ html,body,#map-canvas {
 	left: 0px;
 	width: 100%;
 	height: 100%;
-	z-index: -1;
+	z-index: -1; 
 }
 
 #tracker-status-container {
-	z-index: 2;
+	z-index: 2; /*2  */
 	position: absolute;
-	background-color: red;
+	background-color: #FF6666;
 	border-radius: 7px;
 	box-shadow: 5px 5px 5px #616363;
 	border-color: black;
 	border-style: solid;
 	border-width: 1px;
-	top: 5px;
 	left: 30%;
+	margin-bottom: 16px;
 }
 
 #tracker-status {
 	padding: 5px;
 }
 
-#undo-button-container {
-	z-index: 2;
-	position: absolute;
-	background-color: orange;
-	border-radius: 7px;
-	box-shadow: 5px 5px 5px #616363;
-	border-color: black;
-	border-style: solid;
-	border-width: 1px;
-	top: 5px;
-	left: 40%;
-	cursor: pointer;
-}
 
-#undo-button {
-	padding: 5px;
-}
 
 #close-charts-button {
 	background-color: #F55F5F;
@@ -173,3 +165,102 @@ html,body,#map-canvas {
 	border-radius: 5px;
 	height: 7%;
 }
+
+
+	  .controls {
+        margin-top: 16px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      #search-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+      #search-input:focus {
+        border-color: #4d90fe;
+      }
+
+      .search-container {
+        font-family: Roboto;
+      }
+
+      #type-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        padding: 5px 11px 0px 11px;
+      }
+
+      #type-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+
+      .button-controls{
+      	background-color: #2196F3;
+ 		border : 2px solid #2196F3; /* #F4F4F4; */
+  		border-radius: 3px;
+  		box-shadow: 0 2px 6px rgba(0,0,0,.3);
+  		cursor: pointer;
+  		margin-top: 16px;
+  		text-align: center;
+  		float: left;
+  		margin: 10px;
+      }
+
+      .control-text{
+      	color: #fff;/*rgb(25,25,25)*/
+  		font-family: Roboto,Arial,sans-serif;
+  		font-size: 16px;
+  		line-height:38px;
+  		padding-left:5px;
+  		padding-right:5px;
+      }
+
+      #load-run-div{
+      	position:absolute;
+      	height:100%;
+      	width:250px;
+      	float: right;
+      	top: 0px;
+      	right: 0px;
+      	z-index: -1;
+      	background-color: #F4F4F4;
+      }
+
+      #load-text-div{
+      	margin: 15px;
+      	font-family: Roboto,Arial,sans-serif;
+      }
+
+      #save-div{
+      	position: fixed;
+  		top: 50%;
+  		left: 50%;
+  		/* bring your own prefixes */
+  		margin-top: -120px;
+  		margin-left: -140px;
+  		z-index: -1;
+  		background-color: #F4F4F4;
+
+      }
+      #save-div-text{
+      	margin:30px;
+      	color: rgb(25,25,25);
+  		font-family: Roboto,Arial,sans-serif;
+  		font-size: 16px;
+  		line-height:38px;
+      }

@@ -48,6 +48,7 @@ function mouseTrack(event) {
 	var path = poly.getPath();
 
 	if (on === true) {
+		if(i==0){ startLocation = event.latLng;}
 		if (i % 5 === 0) {
 			path.push(event.latLng);
 			if (i % 10 === 0) {
@@ -68,12 +69,12 @@ function mouseTrack(event) {
 function toggleOnOff(event) {
 	if (on === true) {
 		// console.log("TURN OFF");
-		document.getElementById('tracker-status').innerHTML = "Off";
-		document.getElementById('tracker-status-container').style.backgroundColor = "red";
+		document.getElementById('tracker-status').innerHTML = "Mouse Tracking: Off";
+		document.getElementById('tracker-status-container').style.backgroundColor = "#FF6666";
 		on = false;
 	} else if (on === false) {
-		document.getElementById('tracker-status').innerHTML = "On";
-		document.getElementById('tracker-status-container').style.backgroundColor = "green";
+		document.getElementById('tracker-status').innerHTML = "Mouse Tracking: On";
+		document.getElementById('tracker-status-container').style.backgroundColor = "#7EDF7E";
 		// console.log("TURN ON");
 		on = true;
 	}

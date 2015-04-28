@@ -24,7 +24,8 @@
 
 <!-- Google API script references  -->
 <script src="https://www.google.com/jsapi"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
 <!-- Custom script references -->
 <script src="distance-functions.js"></script>
@@ -37,27 +38,27 @@
 
 <body>
 	<div id="map-canvas"></div>
+	
+	<div id="info-div"></div>
+	
+	
 
-	<div id="location-finder">
-		<input id="address" type="textbox" placeholder="place to go">
-		<input id='address-button' type="button" value="Go!"
-			onclick="newLocation()">
-	</div>
-	<div id="info-div">
-	</div>
-	<div id="chart-button-div">
-		<input id="chart-button" type="button" value="Show Charts"
-			onclick="openCharts()">
-	</div>
-	<div id='tracker-status-container'>
-		<div id='tracker-status'>Off</div>
+	<input id="search-input" class="controls" type="text" placeholder="Search for a location">
+	
+	<div id="chart-button-div" class="button-controls">
+		<!-- <input id="chart-button" type="button" value="Show Charts"
+			onclick="openCharts()"> -->
+			<div class="control-text">More Information</div>
 	</div>
 
-	<div id="undo-button-container">
+	<div id="username"></div>
+	
+
+	<!-- <div id="undo-button-container">
 		<div id='undo-button' onclick="undo()">
 			Undo
 		</div>
-	</div>
+	</div> -->
 	<!-- Pop up for charts -->
 	<div id='over-div' onclick="closeCharts()"></div>
 	<div id='pop-up-div'>
@@ -69,6 +70,50 @@
 			<div id="relative-elevation-chart" class="line-chart"></div>
 			<div id="absolute-elevation-chart" class="line-chart"></div>
 			<div id="climb-chart" class="line-chart"></div>
+		</div>
+	</div>
+	<div id="load-run-div">
+		<div id='load-text-div'>
+		<h3>Load a Route:</h3>
+		<ul id="route-list">
+  			<li onclick="closeCharts()" style="cursor: pointer;">Door and Back - 4.5 mi.  St. Mary's City, MD</li>
+		</ul>
+		</div>
+	</div>
+
+	<div id="top-controls-div" style="">
+		<div id="undo-button" class="button-controls">
+			<div class="control-text">Undo</div>
+		</div>
+		<div id="new-route-button" class="button-controls">
+			<div class="control-text">New Route</div>
+		</div>
+		<div id="save-button" class="button-controls">
+			<div class="control-text">Save</div>
+		</div>
+		<div id="load-button" class="button-controls" >
+			<div class="control-text">Load</div>
+		</div>
+		<div id='tracker-status-container' class="button-controls">
+			<div id='tracker-status' class='control-text'>MouseTracking: Off</div>
+		</div>
+
+		
+	</div>
+
+	<div id="save-div">
+		<div id="save-div-text">
+		<h3>Save New Path</h3>
+		<form>
+			Route Name: <input type="text" name="firstname"><br>
+			<p id="form-location"></p>
+			<div id="pop-up-save-button" class="button-controls" style="background-color: #7EDF7E; border-color: #7EDF7E;">
+				<div class="control-text">Save</div>
+			</div>
+			<div id="pop-up-cancel-button" class="button-controls" style="margin-left: 80px; background-color: #FF6666; border-color: #FF6666;">
+				<div class="control-text">Cancel</div>
+			</div>
+		</form>
 		</div>
 	</div>
 
